@@ -150,3 +150,78 @@ def detach_user_from_invite(invite):
 ```
 
 Please replace `"YOUR_SENTRY_DSN_HERE"` with your actual Sentry DSN.
+
+# Admin Settings for Family Plan
+
+## Step 1: Define a Model for Family Plan Settings
+
+First, create a model that holds the configurable settings for the Family Plan feature. This model will store parameters like the user limit, which determines how many users can be part of a single family plan, including the main subscriber.
+
+```python
+from django.db import models
+
+class FamilyPlanSettings(models.Model):
+    user_limit = models.IntegerField(default=5, help_text="Maximum number of users in a family plan, including the main subscriber")
+
+    class Meta:
+        verbose_name = "Family Plan Setting"
+        verbose_name_plural = "Family Plan Settings"
+
+    def __str__(self):
+        return "Family Plan Settings"
+```
+
+In this model definition:
+
+* `user_limit` is an integer field with a default value of 5, representing the maximum number of users allowed in a family plan, including the primary subscriber.
+    
+* The `help_text` attribute provides a description for this field, making it clear for administrators.
+    
+
+## Step 2: Register the Settings Model with Django Admin
+
+Next, make the model accessible through the Django admin interface for easy management. Register the model using Django's admin capabilities.
+
+```python
+from django.contrib import admin
+from .models import FamilyPlanSettings
+
+@admin.register(FamilyPlanSettings)
+class FamilyPlanSettingsAdmin(admin.ModelAdmin):
+    list_display = ['user_limit']
+    fields = ['user_limit']
+```
+
+In this step:
+
+* The `@admin.register` decorator registers the `FamilyPlanSettings` model with the Django admin, allowing you to manage these settings through the admin dashboard.
+    
+* `list_display` specifies that only the `user_limit` field will be displayed in the list view of `FamilyPlanSettings` objects in the admin interface.
+    
+* `fields` specifies that only the `user_limit` field is editable through the admin interface.
+    
+
+## Step 3: Access and Modify Settings via the Admin Dashboard
+
+Now that you've registered the `FamilyPlanSettings` model with the Django admin, you can access and modify these settings through the admin dashboard:
+
+1. Log in to the Django admin dashboard using your admin credentials.
+    
+2. Once logged in, navigate to the "Family Plan Settings" section. You should find it in the admin menu.
+    
+3. In the "Family Plan Settings" section, you will see the `user_limit` field displayed.
+    
+4. Modify the `user_limit` value as needed. For example, you can change it to a higher or lower number based on your requirements.
+    
+
+These steps allow an admin user to easily manage the user limit and other Family Plan settings through the user-friendly Django admin interface.
+
+## Additional Tips:
+
+* **Singleton Pattern:** If your application requires only one set of Family Plan settings (which is often the case), consider implementing these settings as a singleton. This means there will be only one instance of `FamilyPlanSettings` in the database, ensuring consistency.
+    
+* **Read-Only Fields:** If certain settings should not be editable via the admin interface, you can mark them as read-only in the `FamilyPlanSettingsAdmin` class to prevent accidental modifications.
+    
+* **Validation:** Implement necessary validation in the `FamilyPlanSettings` model to ensure that the configurations are valid. For instance, you can add validation to prevent negative numbers for the `user_limit` field.
+    
+* **Dynamic Access:** In your application logic, such as the `create_invite_with_zammad_token` method, fetch these settings dynamically from the `FamilyPlanSettings` instance to ensure that you always have the latest configuration values. This ensures that your application behaves according to the most up-to-date settings.
