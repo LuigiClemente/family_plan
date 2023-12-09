@@ -216,7 +216,7 @@ Now that you've registered the `FamilyPlanSettings` model with the Django admin,
 
 These steps allow an admin user to easily manage the user limit and other Family Plan settings through the user-friendly Django admin interface.
 
-## Additional Tips:
+## Additional:
 
 * **Singleton Pattern:** If your application requires only one set of Family Plan settings (which is often the case), consider implementing these settings as a singleton. This means there will be only one instance of `FamilyPlanSettings` in the database, ensuring consistency.
     
