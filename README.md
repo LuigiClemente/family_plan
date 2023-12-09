@@ -224,4 +224,4 @@ These steps allow an admin user to easily manage the user limit and other Family
     
 * **Validation:** Implement necessary validation in the `FamilyPlanSettings` model to ensure that the configurations are valid. For instance, you can add validation to prevent negative numbers for the `user_limit` field.
     
-* **Dynamic Access:** In your application logic, such as the `create_invite_with_zammad_token` method, fetch these settings dynamically from the `FamilyPlanSettings` instance to ensure that you always have the latest configuration values. This ensures that your application behaves according to the most up-to-date settings.
+* **Dynamic Access:** In the application logic, such as the `create_invite_with_zammad_token` method, fetch these settings dynamically from the `FamilyPlanSettings` instance to ensure that we always have the latest configuration values. This ensures that your application behaves according to the most up-to-date settings.
