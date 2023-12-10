@@ -218,7 +218,7 @@ These steps allow an admin user to easily manage the user limit and other Family
 
 ## Additional:
 
-* **Singleton Pattern:** If your application requires only one set of Family Plan settings (which is often the case), consider implementing these settings as a singleton. This means there will be only one instance of `FamilyPlanSettings` in the database, ensuring consistency.
+* **Singleton Pattern:** We only one set of Family Plan settings (which is often the case), consider implementing these settings as a singleton. This means there will be only one instance of `FamilyPlanSettings` in the database, ensuring consistency.
     
 * **Read-Only Fields:** If certain settings should not be editable via the admin interface, you can mark them as read-only in the `FamilyPlanSettingsAdmin` class to prevent accidental modifications.
     
