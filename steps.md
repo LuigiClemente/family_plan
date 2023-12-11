@@ -80,4 +80,9 @@
 
 **Step 3: Access and Modify Settings via the Admin Dashboard**
 
-* Explanation: Administrators can log in to the Django admin dashboard to easily access and modify Family Plan settings, including user limits and other configurations.
+* Explanation: Administrators can log in to the Django admin dashboard to easily access and modify Family Plan settings user limits and other invitation configuration.
+
+
+*Note: Other than a few small settings in the Django admin dashboard, this is primarily a backend task. No frontend development is required.*
+
+# **Note**: Other than a few small settings in the Django admin dashboard, this is ONLY a backend task. No frontend development is required.
