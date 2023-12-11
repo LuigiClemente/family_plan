@@ -66,18 +66,18 @@
 
 * Explanation: The process completes with the user successfully detached from the plan.
 
-**Task 14: Configuring Family Plan Settings (3 Steps)**
+**Task 5: Configuring Family Plan Settings (3 Steps)**
 
 * Explanation: These tasks involve configuring and managing settings for the Family Plan feature through the Django admin interface. Administrators can access and modify settings such as user limits to tailor the feature according to their needs.
 
-**Step a: Define a Model for Family Plan Settings**
+**Step 1: Define a Model for Family Plan Settings**
 
 * Explanation: Create a model to hold configurable settings for the Family Plan feature, such as user limits.
 
-**Step b: Register the Settings Model with Django Admin**
+**Step 2: Register the Settings Model with Django Admin**
 
 * Explanation: Make the Family Plan settings model accessible through the Django admin interface by registering it.
 
-**Step c: Access and Modify Settings via the Admin Dashboard**
+**Step 3: Access and Modify Settings via the Admin Dashboard**
 
 * Explanation: Administrators can log in to the Django admin dashboard to easily access and modify Family Plan settings, including user limits and other configurations.
